@@ -29,7 +29,6 @@
       <th></th>
     </tr>
     @foreach($posts as $post)
-
       <tr>
         <td>{{$post->id}}</td>
 
