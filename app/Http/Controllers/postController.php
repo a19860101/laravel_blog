@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use Illuminate\Support\Facades\Auth;
+
 
 class postController extends Controller
 {
@@ -51,7 +53,15 @@ class postController extends Controller
             "content"=>"required"
         ]);
 
-        Post::create($request->all());
+        // Post::create($request->all());
+
+        $post = new Post;
+        $post->fill($request->all());
+
+        $post->user_id = Auth::id();
+        
+        $post->save();
+        
         return redirect("post");
     }
 
