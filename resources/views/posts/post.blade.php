@@ -22,7 +22,7 @@
     <tr>
       <th>ID</th>
       <th>名稱</th>
-      <!-- <th>內容</th> -->
+      <th>作者</th>
       <th>建立時間</th>
       <th>修改時間</th>
       <th></th>
@@ -35,7 +35,7 @@
         <!-- <td><a href="/post/{{$post->id}}">{{$post->title}}</a></td> -->
 
         <td><a href="{{route('post.show',$post->id)}}">{{$post->title}}</a></td>
-
+        <td>{{$post->user->name}}</td>
         <!-- <td>{{$post->content}}</td> -->
         <td>{{$post->created_at}}</td>
         <td>{{$post->updated_at}}</td>

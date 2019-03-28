@@ -11,6 +11,7 @@
   <p>
     {{$post->content}}
   </p>
+  <div>作者:{{$post->user->name}}</div>
   <div>建立時間：{{$post->created_at}}</div>
   <div>修改時間：{{$post->updated_at}}</div>
 </body>
