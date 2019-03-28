@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get("/about",function(){
     return view("about");
-});
+})->middleware('auth');
 
 Route::get("/service",function($id){
     return view("service");
@@ -27,10 +27,14 @@ Route::get("/service",function($id){
 });
 
 // Route::get("/post","postController@index");
-Route::resource("/post","postController");
+Route::resource("/post","postController")->middleware('auth');
 
 // Route::get("/welcome","testController@test");
 
 // Route::get("/qwerty/{id}","testController@qwerty");
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

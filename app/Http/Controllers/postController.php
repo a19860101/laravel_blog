@@ -45,6 +45,12 @@ class postController extends Controller
     {
         //
         // return $request->all();
+
+        $this->validate($request,[
+            "title"=>"required",
+            "content"=>"required"
+        ]);
+
         Post::create($request->all());
         return redirect("post");
     }

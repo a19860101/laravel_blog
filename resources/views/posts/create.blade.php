@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    .error {
+      color: #f00;
+    }
+  </style>
 </head>
 <body>
   <h1>CREATE POST</h1>
@@ -15,5 +20,11 @@
     <textarea name="content" cols="30" rows="10"></textarea>
     <input type="submit" value="送出">
   </form>
+  <!-- {{ count($errors) }} -->
+  @if(count($errors) > 0)
+    @foreach($errors->all() as $e)
+      <div class="error">{{ $e }}</div>
+    @endforeach
+  @endif
 </body>
 </html>
