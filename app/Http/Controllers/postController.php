@@ -21,7 +21,8 @@ class postController extends Controller
         // return "index";
         // return view("posts.post");
         // return $posts = Post::all(); 
-        $posts = Post::all();
+        // $posts = Post::all();
+        $posts = Post::paginate(3);
         return view("posts.post",compact("posts"));
     }
 
@@ -55,14 +56,20 @@ class postController extends Controller
 
         // Post::create($request->all());
 
+        $img = $request->file('img')->store('public');
+        $img = str_replace('public/','storage/',$img);
+        
         $post = new Post;
         $post->fill($request->all());
 
         $post->user_id = Auth::id();
-        
+        $post->img = $img;
+
         $post->save();
         
         return redirect("post");
+        
+        
     }
 
     /**

@@ -8,6 +8,7 @@
 </head>
 <body>
   <h1>{{$post->title}}</h1>
+  <img src="/{{$post->img}}" alt="{{$post->img}}" width="200">
   <p>
     {{$post->content}}
   </p>

@@ -13,11 +13,12 @@
 </head>
 <body>
   <h1>CREATE POST</h1>
-  <form action="/post" method="post">
+  <form action="/post" method="post" enctype="multipart/form-data">
     @csrf
     <!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
     <input type="text" name="title">
     <textarea name="content" cols="30" rows="10"></textarea>
+    <input type="file" name="img">
     <input type="submit" value="送出">
   </form>
   <!-- {{ count($errors) }} -->
